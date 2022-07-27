@@ -13,9 +13,3 @@ function onPlayerTimeUpdate(data) {
     localStorage.setItem("videoplayer-current-time", data.seconds);
     console.log(data.seconds);
 }
-
-    
-
-
-    
-    
