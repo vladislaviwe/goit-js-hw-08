@@ -4,6 +4,7 @@ const formRef = document.querySelector('.feedback-form');
 
 initForm();
 
+
 formRef.addEventListener('input', throttle((evt) => {
     let enteredData = localStorage.getItem('feedback-form-state');
     enteredData = enteredData ? JSON.parse(enteredData) : {};
@@ -13,8 +14,11 @@ formRef.addEventListener('input', throttle((evt) => {
 
 formRef.addEventListener('submit', evt => {
     evt.preventDefault();
-    const formData = new FormData(formRef);
-    formData.forEach((email, message) => console.log(email, message));
+
+    if (localStorage.getItem('feedback-form-state')) {
+        console.log(localStorage.getItem('feedback-form-state'));
+    };
+
     formRef.reset();
     localStorage.removeItem('feedback-form-state');
 });
